@@ -1,1 +1,1 @@
-extends: "@2030/commitlint-config-emoji"
+extends: '@2030/commitlint-config-emoji'
