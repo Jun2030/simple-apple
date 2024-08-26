@@ -8,13 +8,13 @@ importers:
 
   .:
     dependencies:
-      '@2030/commitlint-config-emoji':
-        specifier: 2.0.0-beta.2
-        version: 2.0.0-beta.2(@commitlint/cli@19.4.0(@types/node@22.5.0)(typescript@5.5.4))
       vue:
         specifier: ^3.4.38
         version: 3.4.38(typescript@5.5.4)
     devDependencies:
+      '@2030/commitlint-config-emoji':
+        specifier: 2.0.0-beta.2
+        version: 2.0.0-beta.2(@commitlint/cli@19.4.0(@types/node@22.5.0)(typescript@5.5.4))
       '@commitlint/cli':
         specifier: ^19.4.0
         version: 19.4.0(@types/node@22.5.0)(typescript@5.5.4)

@@ -10,10 +10,10 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@2030/commitlint-config-emoji": "2.0.0-beta.2",
     "vue": "^3.4.38"
   },
   "devDependencies": {
+    "@2030/commitlint-config-emoji": "2.0.0-beta.2",
     "@commitlint/cli": "^19.4.0",
     "@vitejs/plugin-vue": "^5.1.2",
     "husky": "^9.1.5",
