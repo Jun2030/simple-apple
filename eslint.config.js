@@ -1,6 +1,6 @@
-import antfu from '@antfu/eslint-config'
+import jun from '@2030/eslint-config'
 
-export default antfu({
+export default jun({
   vue: true,
   typescript: true,
   formatters: true,

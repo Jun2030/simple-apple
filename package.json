@@ -7,23 +7,41 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "prepare": "husky",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint-staged": "lint-staged",
+    "oxlint": "oxlint",
+    "prepare": "husky"
   },
   "dependencies": {
-    "vue": "^3.4.38"
+    "element-plus": "^2.8.1",
+    "pinia": "^2.2.2",
+    "pinia-plugin-persistedstate": "4.0.0-alpha.4",
+    "vue": "^3.4.38",
+    "vue-i18n": "^9.14.0",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@2030/commitlint-config-emoji": "2.0.0",
-    "@antfu/eslint-config": "^2.27.1",
+    "@2030/commitlint-config-emoji": "^2.0.0",
+    "@2030/eslint-config": "^1.0.0",
     "@commitlint/cli": "^19.4.0",
     "@vitejs/plugin-vue": "^5.1.2",
+    "@vitejs/plugin-vue-jsx": "^4.0.1",
     "eslint": "^9.9.1",
     "eslint-plugin-format": "^0.1.2",
     "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "oxlint": "^0.9.0",
     "typescript": "^5.5.4",
+    "unplugin-auto-import": "^0.18.2",
+    "unplugin-vue-components": "^0.27.4",
+    "unplugin-vue-macros": "^2.11.6",
     "vite": "^5.4.2",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-vue-devtools": "^7.3.9",
     "vue-tsc": "^2.0.29"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
