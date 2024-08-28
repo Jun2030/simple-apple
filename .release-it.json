@@ -1,0 +1,68 @@
+{
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "header": "# 版本日志",
+      "ignoreRecommendedBump": true,
+      "strictSemVer": true,
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          { "type": "🎉 init", "section": "🎉 初始化" },
+          { "type": "🚧 work", "section": "🚧 进行中" },
+          { "type": "👔 work", "section": "🚧 进行中" },
+          { "type": "✨ feat", "section": "✨ 新功能" },
+          { "type": "💥 feat", "section": "✨ 新功能" },
+          { "type": "🐛 fix", "section": "🐛 已修复" },
+          { "type": "🩹 fix", "section": "🐛 已修复" },
+          { "type": "🚑 fix", "section": "🐛 已修复" },
+          { "type": "🔒️ fix", "section": "🐛 已修复" },
+          { "type": "🚨 fix", "section": "🐛 已修复" },
+          { "type": "✏️ typos", "section": "✏️ 错别字修正", "hidden": true },
+          { "type": "🎨 style", "section": "🎨 已改进" },
+          { "type": "💄 style", "section": "🎨 已改进" },
+          { "type": "📝 docs", "section": "📝 更文档" },
+          { "type": "🔧 config", "section": "🔧 更配置" },
+          { "type": "💡 comment", "section": "🔧 更注释" },
+          { "type": "🚚 rename", "section": "🚚 重命名" },
+          { "type": "🔥 chore", "section": "🔥 更文件" },
+          { "type": "📌0 chore", "section": "🔥 更文件" },
+          { "type": "➕ chore", "section": "🔥 更文件" },
+          { "type": "➖ chore", "section": "🔥 更文件" },
+          { "type": "⬆️ chore", "section": "🔥 更文件" },
+          { "type": "⬇️ chore", "section": "🔥 更文件" },
+          { "type": "⚡️ perf", "section": "⚡️ 提性能" },
+          { "type": "🗑️ perf", "section": "🔥 提性能" },
+          { "type": "🔊 log", "section": "🔊 更日志" },
+          { "type": "🔇 log", "section": "🔊 更日志" },
+          { "type": "♻️ refactor", "section": "♻️ 已重构" },
+          { "type": "🧪 test", "section": "🧪 更测试" },
+          { "type": "🦺 test", "section": "🧪 更测试" },
+          { "type": "🚀 build", "section": "🚀 更构建" },
+          { "type": "🔖 release", "section": "🔖 已发布" },
+          { "type": "🌐 i18n", "section": "🌐 国际化" },
+          { "type": "⏪ revert", "section": "⏪ 已退回" },
+          { "type": "🔀 merge", "section": "🔀 已合并" },
+          { "type": "🏷️ types", "section": "🏷️ 更类型" }
+        ]
+      }
+    }
+  },
+  "git": {
+    "requireBranch": "main",
+    "commitMessage": "🔖 release: 发布版本:v${version}",
+    "commit": true,
+    "tag": true,
+    "push": true
+  },
+  "github": {
+    "release": false,
+    "releaseName": "Release ${version}"
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "after:git:release": "echo 日志更新成功"
+  }
+}

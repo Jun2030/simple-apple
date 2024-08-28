@@ -49,9 +49,13 @@
     "**/node_modules": true
   },
   "cSpell.words": [
+    "avue",
+    "conventionalcommits",
+    "infile",
     "oxlint",
     "persistedstate",
     "pinia",
+    "smallwei",
     "typecheck",
     "unplugin"
   ]
