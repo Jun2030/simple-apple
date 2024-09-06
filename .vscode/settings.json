@@ -49,14 +49,35 @@
     "**/node_modules": true
   },
   "cSpell.words": [
+    "Autosize",
     "avue",
+    "brotli",
+    "composables",
     "conventionalcommits",
+    "Destructurable",
+    "Fullscreen",
+    "Gamepad",
+    "Geolocation",
+    "INDEXEDDB",
     "infile",
+    "intlify",
+    "localforage",
+    "LOCALSTORAGE",
+    "nocheck",
     "oxlint",
+    "pausable",
     "persistedstate",
     "pinia",
     "smallwei",
+    "Triggerable",
     "typecheck",
-    "unplugin"
-  ]
+    "unocss",
+    "unplugin",
+    "vueuse"
+  ],
+  "i18n-ally.localesPaths": [
+    "src/locales"
+  ],
+  "oxc_language_server.configPath": ".eslint.config.js",
+  "i18n-ally.sourceLanguage": "en"
 }

@@ -1,3 +1,10 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "lokalise.i18n-ally",
+    "oxc.oxc-vscode",
+    "vue.volar"
+  ]
 }

@@ -50,10 +50,12 @@
   },
   "git": {
     "requireBranch": "main",
-    "commitMessage": "🔖 release: 发布版本:v${version}",
+    "commitMessage": "🔖 release: 发布版本 v${version}",
     "commit": true,
-    "tag": true,
-    "push": true
+    "tagName": "v${version}",
+    "push": true,
+    "pushArgs": ["--follow-tags"],
+    "tagAnnotation": "发布版本: v${version}"
   },
   "github": {
     "release": false,
