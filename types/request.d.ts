@@ -1,5 +1,24 @@
 declare namespace SaRequest {
 
+  /* 请求返回数据 */
+  interface ApiResData<T> {
+    code: string | number
+    data: T
+    message?: string
+  }
+
+  /* 后台返回数据格式 */
+  interface APiBackendConfig {
+    // 业务code码-字段名称
+    codeKey: string
+    // 业务数据-字段名称
+    dataKey: string
+    // 业务消息-字段名称
+    msgKey: string
+    // 成功code码
+    successCode: (string | number)[]
+  }
+
   /* 协议层自定义错误 */
   interface HttpErrorCode {
     code: number
@@ -24,25 +43,6 @@ declare namespace SaRequest {
     businessCodeMap?: (msg: string) => Map<number, { msg: string, action: (msg: string, data: any) => void }>
     // 后台返回数据格式
     backendConfig?: RequestBackendConfig
-  }
-
-  /* 后台返回数据格式 */
-  interface RequestBackendConfig {
-    // 业务code码-字段名称
-    codeKey: string
-    // 业务数据-字段名称
-    dataKey: string
-    // 业务消息-字段名称
-    msgKey: string
-    // 成功code码
-    successCode: (string | number)[]
-  }
-
-  /* 请求返回数据 */
-  interface RequestResData<T> {
-    code: string | number
-    data: T
-    message?: string
   }
 
   /* 请求方式 */

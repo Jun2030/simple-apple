@@ -1,48 +1,52 @@
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 import { pathResolve } from '../index'
 import pkg from '../../package.json'
 
-/* env 前缀 */
-export const envPrefix = 'V_'
-/* env 路径 */
+/** env 路径 */
 export const envDir: string = pathResolve('vite-build/env')
 
-/* App信息 */
-const { dependencies, devDependencies, name, version } = pkg
-export const __APP_INFO__ = {
-  pkg: { dependencies, devDependencies, name, version },
-  lastBuildTime: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+/** 获取 build 时间 */
+export function getBuildTime() {
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  return dayjs.tz(Date.now(), 'Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
 }
 
-/* Chunk 拆包名 */
+/** App信息 */
+export const { dependencies, devDependencies, name, version } = pkg
+export const __APP_INFO__ = {
+  appName: name,
+  appVersion: version,
+  buildTime: getBuildTime,
+}
+
+/** Chunk 拆包名 */
 export const VENDOR_LIBS: { match: string[], output: string }[] = [
   {
-    match: ['element-plus'],
+    match: ['element-plus', '@element-plus/icons-vue'],
     output: 'element-plus',
   },
   {
-    match: ['@vue'],
-    output: '@vue',
+    match: ['@vue', 'vue', 'pinia', 'vue-router', 'vue-i18n', '@vueuse/core'],
+    output: 'vue',
   },
   {
     match: ['axios'],
     output: 'axios',
   },
   {
-    match: ['lodash-es'],
-    output: 'dash',
+    match: ['lodash-es', 'crypto-js', 'xlsx'],
+    output: 'utils',
   },
   {
-    match: ['crypto-js'],
-    output: 'crypto',
-  },
-  {
-    match: ['vue-router'],
-    output: 'router',
+    match: ['vxe-table', 'xe-utils'],
+    output: 'vxe',
   },
 ]
 
-/* 手动拆包优化配置 */
+/** 手动拆包优化配置 */
 export function manualChunks(id: string): string | undefined {
   if (/[\\/]node_modules[\\/]/.test(id)) {
     const matchItem = VENDOR_LIBS.find((item) => {

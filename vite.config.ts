@@ -1,40 +1,67 @@
-import { defineConfig, loadEnv } from 'vite'
-import type { ConfigEnv, UserConfig } from 'vite'
-import { __APP_INFO__, convertEnv, createPlugins, envDir, envPrefix, manualChunks, pathResolve } from './vite-build'
+/// <reference types="vitest" />
 
-export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
+import { type ConfigEnv, type UserConfigExport, loadEnv } from 'vite'
+import { __APP_INFO__, convertEnv, createPlugins, envDir, manualChunks, pathResolve } from './vite-build'
+
+export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const isBuild: boolean = command === 'build'
-  const viteEnv: ViteEnv = convertEnv(loadEnv(mode, envDir, envPrefix))
-  const { V_BASE_URL } = viteEnv
+  const viteEnv: ViteEnv = convertEnv(loadEnv(mode, envDir))
+  const { VITE_BASE_URL, VITE_DROP_CONSOLE } = viteEnv
 
   /* Vite具体配置  */
   return {
+    /** 定义全局常量 */
     define: {
-      __INTLIFY_PROD_DEVTOOLS__: false,
       __APP_INFO__: JSON.stringify(__APP_INFO__),
     },
+    /** 配置路径别名 */
     resolve: {
-      extensions: ['.mjs', '.js', '.ts', '.vue', '.json', 'css', '.scss', '.yaml'],
       alias: {
         '@': pathResolve('./src'),
         '~': pathResolve('./'),
       },
     },
-    base: V_BASE_URL,
+    /** 配置基础路径 */
+    base: VITE_BASE_URL,
+    /** 配置环境变量目录 */
     envDir,
-    envPrefix,
+    /** 配置是否清除屏幕 */
     clearScreen: false,
-    esbuild: { pure: viteEnv.V_DROP_CONSOLE ? ['console.log', 'debugger'] : [] },
+    /** 配置是否删除console */
+    esbuild: {
+      /** 配置删除console */
+      pure: VITE_DROP_CONSOLE ? ['console.log'] : [],
+      /** 打包删除debugger */
+      drop: ['debugger'],
+      /** 打包删除所有注释 */
+      legalComments: 'none',
+    },
+    /** 配置开发服务器 */
+    server: {
+      host: '0.0.0.0',
+      port: 3456,
+      open: false,
+      /** 预热常用文件，提升热更新速度 */
+      warmup: {
+        clientFiles: ['./src/layout/**/*.vue'],
+      },
+    },
+    /** 配置打包 */
     build: {
       sourcemap: !isBuild,
       minify: 'esbuild',
-      chunkSizeWarningLimit: 2000,
+      chunkSizeWarningLimit: 2048,
       rollupOptions: {
         output: {
           manualChunks,
         },
       },
     },
+    /** 配置插件 */
     plugins: createPlugins(viteEnv, isBuild),
+    test: {
+      include: ['src/**/*.test.ts'],
+      environment: 'jsdom',
+    },
   }
-})
+}

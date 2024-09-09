@@ -36,47 +36,47 @@ interface ViteEnv {
    * 项目名称
    * 用于设置应用的显示名称，可能用于标题、页面头部等地方
    */
-  readonly V_APP_NAME: string
+  readonly VITE_APP_NAME: string
 
   /**
    * 项目描述
    * 简短描述应用的用途或特点，可能用于元数据或关于页面
    */
-  readonly V_APP_DESC: string
+  readonly VITE_APP_DESC: string
 
   /**
    * 项目基础路径
    * 应用的根URL路径，用于配置路由和资源加载
    */
-  readonly V_BASE_URL: string
+  readonly VITE_BASE_URL: string
 
   /**
    * 后端基础服务
    * API请求的基础URL，用于配置axios等HTTP客户端
    */
-  readonly V_BASE_API: string
+  readonly VITE_BASE_API: string
 
   /**
    * OSS基础服务
    * 对象存储服务的基础URL，用于文件上传下载等功能
    */
-  readonly V_OSS_API: string
+  readonly VITE_OSS_API: string
 
   /**
-   * 是否使用Mock数据
-   * 控制是否启用模拟数据，用于开发和测试阶段
+   * 路由模式
+   * 指定路由模式，可选值：history|hash
    */
-  readonly V_USE_MOCK: boolean
+  readonly VITE_ROUTE_MODE: SaRoute.RouteMode
 
   /**
    * 构建压缩类型
    * 指定打包时使用的压缩方式，可选值：gzip|brotli|none
    */
-  readonly V_BUILD_COMPRESS: CompressType
+  readonly VITE_BUILD_COMPRESS: CompressType
 
   /**
    * 是否删除Console打印
    * 控制生产构建时是否移除console.log等调试代码
    */
-  readonly V_DROP_CONSOLE: boolean
+  readonly VITE_DROP_CONSOLE: boolean
 }

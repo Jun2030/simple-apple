@@ -2,8 +2,8 @@ import viteCompression from 'vite-plugin-compression'
 import type { PluginOption } from 'vite'
 
 export default (viteEnv: ViteEnv): PluginOption[] => {
-  const { V_BUILD_COMPRESS } = viteEnv
-  const COMPRESS_LIST: string[] = V_BUILD_COMPRESS ? V_BUILD_COMPRESS.split(',') : []
+  const { VITE_BUILD_COMPRESS } = viteEnv
+  const COMPRESS_LIST: string[] = VITE_BUILD_COMPRESS ? VITE_BUILD_COMPRESS.split(',') : []
   const compressData: PluginOption | PluginOption[] = []
   const filter = (fileUrl: string): boolean => {
     // 只压缩assets目录下的js文件
