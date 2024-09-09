@@ -16,6 +16,7 @@
       "@/*": ["./src/*"],
       "~/*": ["./*"]
     },
+    "types": ["@intlify/unplugin-vue-i18n/types", "element-plus/global", "vite/client", "unplugin-icons/types/vue"],
     "allowImportingTsExtensions": true,
 
     /* Linting */

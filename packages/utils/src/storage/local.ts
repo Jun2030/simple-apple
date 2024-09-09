@@ -1,5 +1,5 @@
 import { decrypt, encrypt } from '../crypto'
-import { utilsConfig } from '@/config'
+import { utilsConfig } from '../config'
 
 const { DEFAULT_CACHE_TIME, IS_ENCRYPT } = utilsConfig
 
@@ -62,4 +62,4 @@ export class LocalStg {
   }
 }
 
-export default new LocalStg()
+export const localStg = new LocalStg()

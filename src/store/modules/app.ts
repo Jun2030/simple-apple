@@ -1,10 +1,9 @@
 import en from 'element-plus/es/locale/lang/en'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import { getBrowserLang, localStg } from '@2030/utils'
 import { piniaPersistConfig } from '@/store/helper'
-import localStg from '@/utils/storage/local'
 import i18n from '@/plugins/i18n'
 import { LocaleEnum } from '@/enum'
-import { getBrowserLang } from '@/utils'
 
 export const useAppStore = defineStore('app', {
   state: (): AppState => ({

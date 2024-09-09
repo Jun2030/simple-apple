@@ -5,7 +5,7 @@ import pkg from '../../package.json'
 /* env 前缀 */
 export const envPrefix = 'V_'
 /* env 路径 */
-export const envDir: string = pathResolve('vite-assets/env')
+export const envDir: string = pathResolve('vite-build/env')
 
 /* App信息 */
 const { dependencies, devDependencies, name, version } = pkg

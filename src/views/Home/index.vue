@@ -1,5 +1,5 @@
 <script setup lang="tsx">
-import ICON_LOGO from '/icons/icon.png'
+import ICON_LOGO from '@/assets/imgs/icon.png'
 import { useAppStore } from '@/store'
 import { LocaleEnum } from '@/enum'
 

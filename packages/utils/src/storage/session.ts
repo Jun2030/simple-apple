@@ -1,5 +1,5 @@
 import { decrypt, encrypt } from '../crypto'
-import { utilsConfig } from '@/config'
+import { utilsConfig } from '../config'
 
 const { DEFAULT_CACHE_TIME, IS_ENCRYPT } = utilsConfig
 
@@ -62,4 +62,4 @@ export class SessionStg {
   }
 }
 
-export default new SessionStg()
+export const sessionStg = new SessionStg()

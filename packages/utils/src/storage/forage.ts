@@ -1,6 +1,6 @@
 import forage from 'localforage'
 import { decrypt, encrypt } from '../crypto'
-import { utilsConfig } from '@/config'
+import { utilsConfig } from '../config'
 
 const { DEFAULT_CACHE_TIME, DEFAULT_FORAGE_CONFIG, IS_ENCRYPT } = utilsConfig
 
@@ -30,7 +30,7 @@ export class ForageStg {
   public async setItem<T>(k: string, v: T, m = DEFAULT_CACHE_TIME): Promise<T> {
     try {
       const data = {
-        data: this._isEncrypt ? encrypt(v) : v,
+        data: this._isEncrypt ? encrypt(v as object) : v,
         expires: m ? new Date().getTime() + m * 60 * 1000 : DEFAULT_CACHE_TIME,
       }
       const value = await this._forage.setItem(k, data)
@@ -92,4 +92,4 @@ export class ForageStg {
   }
 }
 
-export default new ForageStg({})
+export const forageStg = new ForageStg({})

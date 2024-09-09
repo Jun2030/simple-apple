@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import type { ConfigEnv, UserConfig } from 'vite'
-import { __APP_INFO__, convertEnv, createPlugins, envDir, envPrefix, manualChunks, pathResolve } from './vite-assets'
+import { __APP_INFO__, convertEnv, createPlugins, envDir, envPrefix, manualChunks, pathResolve } from './vite-build'
 
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild: boolean = command === 'build'

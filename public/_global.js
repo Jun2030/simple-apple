@@ -11,5 +11,6 @@ window.$config = {
   },
   // 基本的api地址 > env配置
   baseApiUrl: '',
+  // 上传oss地址 > env配置
   ossApiUrl: '',
 }
