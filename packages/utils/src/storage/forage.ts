@@ -1,6 +1,6 @@
 import forage from 'localforage'
-import { decrypt, encrypt } from '../crypto'
 import { utilsConfig } from '../config'
+import { decrypt, encrypt } from '../crypto'
 
 const { DEFAULT_CACHE_TIME, DEFAULT_FORAGE_CONFIG, IS_ENCRYPT } = utilsConfig
 
@@ -35,8 +35,7 @@ export class ForageStg {
       }
       const value = await this._forage.setItem(k, data)
       return Promise.resolve(this._isEncrypt ? decrypt(value.data as string) as T : value.data as T)
-    }
-    catch (error) {
+    } catch (error) {
       return Promise.reject(error)
     }
   }
@@ -52,12 +51,10 @@ export class ForageStg {
       if (value && (value.expires > new Date().getTime() || value.expires === 0)) {
         const resData = (this._isEncrypt ? decrypt(value.data as string) : value.data) as T
         return Promise.resolve(resData)
-      }
-      else {
+      } else {
         return Promise.resolve(null)
       }
-    }
-    catch (error) {
+    } catch (error) {
       return Promise.reject(error)
     }
   }
@@ -71,8 +68,7 @@ export class ForageStg {
     try {
       await this._forage.removeItem(k)
       Promise.resolve()
-    }
-    catch (error) {
+    } catch (error) {
       Promise.reject(error)
     }
   }
@@ -85,8 +81,7 @@ export class ForageStg {
     try {
       await this._forage.clear()
       Promise.resolve()
-    }
-    catch (error) {
+    } catch (error) {
       Promise.reject(error)
     }
   }

@@ -1,2 +1,4 @@
 app:
   name: simple-apple
+  en: English
+  zh-cn: Chinese

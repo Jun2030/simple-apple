@@ -1,4 +1,4 @@
-import { AES, MD5, enc } from 'crypto-js'
+import { AES, enc, MD5 } from 'crypto-js'
 import { utilsConfig } from '../config'
 
 const { CRYPTO_SECRET } = utilsConfig
@@ -38,8 +38,7 @@ export default class CryptoJS<T extends object> {
     const dataString = decrypted.toString(enc.Utf8)
     try {
       return JSON.parse(dataString) as T
-    }
-    catch {
+    } catch {
       return null
     }
   }

@@ -305,6 +305,18 @@
     "watchWithFilter": true,
     "whenever": true,
     "useAppStore": true,
-    "useCounterStore": true
+    "useCounterStore": true,
+    "DirectiveBinding": true,
+    "MaybeRef": true,
+    "MaybeRefOrGetter": true,
+    "onWatcherCleanup": true,
+    "useId": true,
+    "useModel": true,
+    "useTemplateRef": true,
+    "useUserStore": true,
+    "useUserStoreHook": true,
+    "useTitleSet": true,
+    "useAppStoreHook": true,
+    "ElLoading": true
   }
 }

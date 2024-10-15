@@ -28,6 +28,10 @@ interface GlobalConfig {
  */
 type CompressType = 'gzip' | 'brotli' | 'gzip,brotli' | 'none'
 
+interface ImportMeta {
+  readonly env: ViteEnv
+}
+
 /**
  * Vite环境变量
  */

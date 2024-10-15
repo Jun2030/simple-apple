@@ -1,5 +1,5 @@
-import viteCompression from 'vite-plugin-compression'
 import type { PluginOption } from 'vite'
+import viteCompression from 'vite-plugin-compression'
 
 export default (viteEnv: ViteEnv): PluginOption[] => {
   const { VITE_BUILD_COMPRESS } = viteEnv

@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
-import { pathResolve } from '../index'
+import utc from 'dayjs/plugin/utc'
 import pkg from '../../package.json'
+import { pathResolve } from '../utils'
 
 /** env 路径 */
 export const envDir: string = pathResolve('vite-build/env')

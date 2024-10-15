@@ -1,0 +1,21 @@
+httpError:
+  400: 请求出现语法错误
+  401: 用户未授权
+  403: 服务器拒绝访问
+  404: 请求的资源不存在
+  405: 请求方法未允许
+  408: 网络请求超时
+  500: 服务器内部错误
+  501: 服务器未实现请求功能
+  502: 网关错误
+  503: 服务不可用
+  504: 网关超时
+  505: HTTP版本不支持
+networkError:
+  network: 网络异常，请检查网络设置
+  timeout: 请求超时，请稍后再试
+  other: 异常错误
+loginError:
+  tokenExpired: 登录过期
+requestConfig:
+  loadingText: 加载中...

@@ -2,3 +2,14 @@ demo:
   count: 'count is '
   edit: Edit
   version: Version
+  toggleLocale: Toggle Locale
+  successData: Success Data
+  errorData: Error Data
+  loginSuccess: Login Success
+  loginError: Login Error
+  button1: Default with loading
+  button2: Get all data
+  button3: Get error data when offline
+  button4: Do not filter empty parameters
+  button5: Prevent duplicate requests
+  button6: Error retry

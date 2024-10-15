@@ -1,4 +1,4 @@
-/* fade */
+/* 淡入淡出 */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease-in-out;
@@ -8,9 +8,9 @@
   opacity: 0;
 }
 
-/* fade-slide */
-.fade-slide-leave-active,
-.fade-slide-enter-active {
+/* 淡入淡出伴随滑动 */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
   transition: all 0.3s;
 }
 .fade-slide-enter-from {
@@ -22,7 +22,7 @@
   transform: translateX(30px);
 }
 
-/* fade-bottom */
+/* 底部淡入淡出 */
 .fade-bottom-enter-active,
 .fade-bottom-leave-active {
   transition:
@@ -38,9 +38,9 @@
   transform: translateY(10%);
 }
 
-/* fade-scale */
-.fade-scale-leave-active,
-.fade-scale-enter-active {
+/* 淡入淡出伴随缩放 */
+.fade-scale-enter-active,
+.fade-scale-leave-active {
   transition: all 0.28s;
 }
 .fade-scale-enter-from {
@@ -52,7 +52,7 @@
   transform: scale(0.8);
 }
 
-/* zoom-fade */
+/* 缩放淡入淡出 */
 .zoom-fade-enter-active,
 .zoom-fade-leave-active {
   transition:
@@ -68,7 +68,7 @@
   transform: scale(1.06);
 }
 
-/* zoom-out */
+/* 缩小消失 */
 .zoom-out-enter-active,
 .zoom-out-leave-active {
   transition:

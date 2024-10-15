@@ -49,12 +49,17 @@
     "**/node_modules": true
   },
   "cSpell.words": [
+    "ampproject",
+    "astro",
+    "Attributify",
     "Autosize",
     "avue",
     "brotli",
     "composables",
     "conventionalcommits",
     "Destructurable",
+    "dprint",
+    "esbuild",
     "Fullscreen",
     "Gamepad",
     "Geolocation",
@@ -64,21 +69,28 @@
     "intlify",
     "localforage",
     "LOCALSTORAGE",
+    "msword",
     "nocheck",
+    "nprogress",
+    "nuxt",
     "oxlint",
     "pausable",
     "persistedstate",
     "pinia",
+    "slidev",
     "smallwei",
     "Triggerable",
     "typecheck",
     "unocss",
     "unplugin",
-    "vueuse"
+    "vitejs",
+    "vueuse",
+    "YESORNO"
   ],
   "i18n-ally.localesPaths": [
     "src/locales"
   ],
   "oxc_language_server.configPath": ".eslint.config.js",
-  "i18n-ally.sourceLanguage": "en"
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.keystyle": "nested"
 }

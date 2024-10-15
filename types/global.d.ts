@@ -2,6 +2,7 @@ interface Config {
   axios: {
     timeout: number
     timeoutUpload: number
+    authKey: string
     successCode: number[]
   }
   baseApiUrl: string
@@ -9,7 +10,6 @@ interface Config {
 }
 declare global {
   interface Window {
-    mainApi: MainApi
     $config: Config
     $message: ElMessage
     $messageBox: ElMessageBox

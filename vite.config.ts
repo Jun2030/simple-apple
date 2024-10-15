@@ -1,6 +1,4 @@
-/// <reference types="vitest" />
-
-import { type ConfigEnv, type UserConfigExport, loadEnv } from 'vite'
+import { type ConfigEnv, loadEnv, type UserConfigExport } from 'vite'
 import { __APP_INFO__, convertEnv, createPlugins, envDir, manualChunks, pathResolve } from './vite-build'
 
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
@@ -59,9 +57,5 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     },
     /** 配置插件 */
     plugins: createPlugins(viteEnv, isBuild),
-    test: {
-      include: ['src/**/*.test.ts'],
-      environment: 'jsdom',
-    },
   }
 }

@@ -1,5 +1,5 @@
-import { decrypt, encrypt } from '../crypto'
 import { utilsConfig } from '../config'
+import { decrypt, encrypt } from '../crypto'
 
 const { DEFAULT_CACHE_TIME, IS_ENCRYPT } = utilsConfig
 

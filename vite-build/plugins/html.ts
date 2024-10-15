@@ -1,5 +1,5 @@
-import { createHtmlPlugin } from 'vite-plugin-html'
 import type { PluginOption } from 'vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
 import pkg from '../../package.json'
 
 export default (viteEnv: ViteEnv, isBuild: boolean): PluginOption[] => {
