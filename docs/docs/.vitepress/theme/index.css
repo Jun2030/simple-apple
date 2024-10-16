@@ -1,0 +1,9 @@
+.main img:not(.icon-img) {
+  cursor: zoom-in; /* 移动到图片上，可放大 */
+}
+
+/* :not(.icon-img) 此代码是为了过滤导航页面的img标签 */
+/* 注意：上面的代码只是过滤img图片没有放大效果，但不能阻止点击，如需阻止可添加下面的代码 */
+.icon-img {
+  pointer-events: none;
+}

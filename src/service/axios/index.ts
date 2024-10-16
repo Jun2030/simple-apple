@@ -8,6 +8,7 @@ const { baseURL, headers, timeout } = defaultAxiosConfig()
 
 /**
  * 内部请求方法，并默认设置，一般不对外暴露
+ * 如果有需要，可自行创建实例
  */
 const fetchAxios = new Axios({
   baseURL,

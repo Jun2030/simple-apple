@@ -2,8 +2,6 @@
 import { login, login2, login3 } from '@/api/login'
 import ICON_LOGO from '@/assets/imgs/icon.png'
 import { LocaleEnum } from '@/enum'
-import { useAppStore } from '@/store'
-import { useI18n } from 'vue-i18n'
 import VueJsonPretty from 'vue-json-pretty'
 import 'vue-json-pretty/lib/styles.css'
 
