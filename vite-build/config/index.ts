@@ -76,9 +76,9 @@ export const OPTIMIZE_DEPS: DepOptimizationOptions = {
     'vxe-table-plugin-element',
     '@vueuse/core',
     'nprogress',
-    'element-plus/theme-chalk/el-loading.css',
-    'element-plus/theme-chalk/el-message.css',
-    'element-plus/theme-chalk/el-message-box.css',
-    'element-plus/theme-chalk/el-notification.css',
+    'element-plus/es/components/loading/style/css',
+    'element-plus/es/components/message/style/css',
+    'element-plus/es/components/message-box/style/css',
+    'element-plus/es/components/notification/style/css',
   ],
 }
