@@ -1,5 +1,5 @@
 import { type ConfigEnv, loadEnv, type UserConfigExport } from 'vite'
-import { __APP_INFO__, convertEnv, createPlugins, envDir, manualChunks, pathResolve } from './vite-build'
+import { __APP_INFO__, convertEnv, createPlugins, envDir, manualChunks, OPTIMIZE_DEPS, pathResolve } from './vite-build'
 
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const isBuild: boolean = command === 'build'
@@ -57,5 +57,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     },
     /** 配置插件 */
     plugins: createPlugins(viteEnv, isBuild),
+    /** 配置预构建依赖 */
+    optimizeDeps: OPTIMIZE_DEPS,
   }
 }

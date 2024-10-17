@@ -18,8 +18,9 @@
     "document": "cd docs && pnpm docs:dev",
     "lint": "eslint .",
     "lint-staged": "lint-staged",
-    "prepare": "husky",
-    "release": "release-it"
+    "prepare": "simple-git-hooks",
+    "release": "release-it",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@2030/utils": "workspace:*",
@@ -52,9 +53,9 @@
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "eslint": "^9.12.0",
     "eslint-plugin-format": "^0.1.2",
-    "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "release-it": "^17.9.0",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "5.5.4",
     "unocss": "^0.63.4",
     "unplugin-auto-import": "^0.18.3",
@@ -65,6 +66,10 @@
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-vue-devtools": "^7.4.6",
     "vue-tsc": "^2.1.6"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm commitlint --edit $1",
+    "pre-commit": "pnpm typecheck && pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"

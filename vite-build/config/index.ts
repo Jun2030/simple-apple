@@ -1,3 +1,4 @@
+import type { DepOptimizationOptions } from 'vite'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
@@ -55,4 +56,29 @@ export function manualChunks(id: string): string | undefined {
     })
     return matchItem ? matchItem.output : 'vendors'
   }
+}
+
+/** 预构建依赖优化 */
+export const OPTIMIZE_DEPS: DepOptimizationOptions = {
+  include: [
+    'vue',
+    'vue-router',
+    'pinia',
+    'element-plus',
+    'vue-i18n',
+    'axios',
+    'axios-retry',
+    'unocss',
+    'dayjs',
+    'crypto-js',
+    'vxe-table',
+    'xe-utils',
+    'vxe-table-plugin-element',
+    '@vueuse/core',
+    'nprogress',
+    'element-plus/theme-chalk/el-loading.css',
+    'element-plus/theme-chalk/el-message.css',
+    'element-plus/theme-chalk/el-message-box.css',
+    'element-plus/theme-chalk/el-notification.css',
+  ],
 }
