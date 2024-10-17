@@ -26,6 +26,7 @@ export default defineConfig({
             { text: '总体说明', link: '/framework/overview' },
             { text: '结构目录', link: '/framework/structure' },
             { text: '国际化使用', link: '/framework/i18n' },
+            { text: '图标使用', link: '/framework/icon' },
             { text: '请求封装', link: '/framework/request' },
             { text: '私有化扩展', link: '/framework/private' },
             { text: '路由处理', link: '/framework/router' },

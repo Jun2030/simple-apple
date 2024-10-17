@@ -103,6 +103,13 @@ async function handleLogin4() {
         <p>{{ t('demo.errorData') }}:</p>
         <VueJsonPretty :data="errData" />
       </div>
+      <div>Element Plus 图标使用</div>
+      <i-ep:apple />
+      <i-ep-delete class="w-20 h-20" />
+      <i-ep:circle-plus class="text-red-500 text-2xl" />
+      <div>本地图标使用</div>
+      <i-svg:home class="w-10 h-10 inline" />
+      <i-svg:icon-park-solid-apple class="inline text-red-6 text-size-20" />
     </div>
   </div>
 </template>

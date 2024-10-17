@@ -1,5 +1,6 @@
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import { ElementPlusResolver, VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
@@ -16,21 +17,20 @@ export default [
     eslintrc: { enabled: true, globalsPropValue: true },
     vueTemplate: true,
   }),
-  Components({
-    dts: true,
-    resolvers: [
-      IconsResolver({ enabledCollections: ['ep'] }),
-      ElementPlusResolver(),
-      VueUseComponentsResolver(),
-    ],
-  }),
   Icons({
     autoInstall: true,
     compiler: 'vue3',
-    // 设置图标集合的解析路径
-    // 这行代码指定了自定义图标的存放位置，使用pathResolve函数解析到'src/assets/icons'目录
-    // 这允许unplugin-icons插件从这个目录加载和使用自定义图标
-    collectionsNodeResolvePath: pathResolve('src/assets/icons'),
+    customCollections: {
+      svg: FileSystemIconLoader('./src/assets/icons', svg => svg.replace(/^<svg /, '<svg fill="currentColor" ')),
+    },
+  }),
+  Components({
+    dts: true,
+    resolvers: [
+      IconsResolver({ enabledCollections: ['ep', 'svg'] }),
+      ElementPlusResolver(),
+      VueUseComponentsResolver(),
+    ],
   }),
   VueI18nPlugin({
     runtimeOnly: true,

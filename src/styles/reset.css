@@ -219,7 +219,7 @@ button,
   cursor: default;
 }
 
-img,
+/* img,
 svg,
 video,
 canvas,
@@ -228,7 +228,7 @@ iframe,
 embed,
 object {
   display: block;
-}
+} */
 
 img,
 video {
