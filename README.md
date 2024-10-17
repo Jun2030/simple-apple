@@ -41,6 +41,9 @@ pnpm release - 发布新版本
 - `vue-hooks-plus` `Vue3` 基础和高级的 `hook`, 类似 `@vueuse/core`
 - `moderndash` 轻量级 `JS/Ts` 常用工具库
 - `oxlint` 更好用的静态代码分析工具
+- `vue-virtual-scroller` 虚拟滚动，解决大数据量渲染问题(适用于各种类型的滚动列表)
+- `vue-virtual-scroll-grid` 虚拟滚动，解决大数据量渲染问题(侧重于网格形式列表)
+- `vue-draggable-plus` 支持的 `Vue3` 拖拽库
 - ...
 
 ## 待办清单

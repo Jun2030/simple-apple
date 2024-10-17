@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Simple Apple"
-  text: "框架&业务模块化文档"
+  text: "框架&业务开发文档"
   tagline: 低成本维护文档
   actions:
     - theme: brand
