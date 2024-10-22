@@ -2,3 +2,5 @@ app:
   name: simple-apple
   en: English
   zh-cn: Chinese
+result:
+  empty: No Data

@@ -27,6 +27,8 @@ declare module 'vue' {
     ISvgIconParkSolidApple: typeof import('~icons/svg/icon-park-solid-apple')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VxeColumn: typeof import('vxe-table/es/column')['default']
+    VxeTable: typeof import('vxe-table/es/table')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

@@ -2,3 +2,5 @@ app:
   name: 简单-苹果
   en: 英文
   zh-cn: 中文
+result:
+  empty: 暂无数据

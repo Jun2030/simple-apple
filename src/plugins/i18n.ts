@@ -1,10 +1,10 @@
 import { AppConfig } from '@/config'
-
 import { getBrowserLang, getDirContent } from '@2030/utils'
 import enEl from 'element-plus/es/locale/lang/en'
-import { createI18n } from 'vue-i18n'
-// Element-plus 的ui框架国际化语言配置
 import zhCnEl from 'element-plus/es/locale/lang/zh-cn'
+import { createI18n } from 'vue-i18n'
+import enVxe from 'vxe-table/es/locale/lang/en-US'
+import zhCnVxe from 'vxe-table/es/locale/lang/zh-CN'
 
 // 自定义的语言配置
 const zhCnLocale = getDirContent(import.meta.glob(`@/locales/zh-cn/*.yaml`, { eager: true, import: 'default' }))
@@ -18,10 +18,12 @@ const i18n = createI18n({
   messages: {
     [zhCnEl.name]: {
       ...zhCnEl,
+      ...zhCnVxe,
       ...zhCnLocale,
     },
     [enEl.name]: {
       ...enEl,
+      ...enVxe,
       ...enLocale,
     },
   },

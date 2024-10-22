@@ -83,8 +83,7 @@ export class AxiosHooks implements IAxiosHooks {
       // 忽略空参数(null, undefined, '')处理
       !ignoreEmptyParams && removeEmptyParams(config.params)
       delete config.data
-    } else if (config.method && config.method.toLocaleLowerCase() === RequestEnum.POST
-    ) {
+    } else if (config.method && config.method.toLocaleLowerCase() === RequestEnum.POST) {
       config.data = config.data ?? config.params
       // 忽略空参数(null, undefined, '')处理
       !ignoreEmptyParams && removeEmptyParams(config.data)
@@ -98,7 +97,7 @@ export class AxiosHooks implements IAxiosHooks {
    * @param {AxiosResponse} res 响应数据
    * @return {*}
    */
-  responseInterceptorHook(res: AxiosResponse): any {
+  responseInterceptorHook(res: AxiosResponse) {
     const { reduceResponse, hidePostLoading, showError } = this.mergedExtraConfig
     // 请求防抖处理
     const { config } = res
@@ -131,11 +130,18 @@ export class AxiosHooks implements IAxiosHooks {
     }
   }
 
+  /**
+   * 自定义响应错误处理钩子
+   * 该钩子用于统一处理所有响应错误，包括协议层错误和网络错误
+   * @param error 错误对象，包含请求配置、响应信息等
+   * @returns 返回处理错误的Promise
+   */
   responseCatchErrorHook(error: any) {
-    // 请求取消
+  // 请求取消
     if (axios.isCancel(error)) {
       return Promise.reject(error)
     }
+    // 获取是否显示错误的配置
     const { showError } = error.config!.extraConfig as ExtraConfig
     // 请求已经发出，但是得到了一个协议层状态码不在2xx范围内的响应 | 请求完全得不到响应
 
@@ -143,11 +149,11 @@ export class AxiosHooks implements IAxiosHooks {
     useAppStoreHook().SET_LOADING(false)
     // 协议层错误处理
     if (error.response) {
-      // 处理协议层错误状态码（非断网、超时）
+    // 处理协议层错误状态码（非断网、超时）
       const { status } = error.response
       return handleHttpCodeError(status, error, showError!)
     } else {
-      // 网络错误处理
+    // 网络错误处理
       return handleNetworkError(error.message, error, showError)
     }
   }

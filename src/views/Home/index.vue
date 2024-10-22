@@ -61,6 +61,17 @@ async function handleLogin4() {
     errData.value = error
   }
 }
+
+interface RowVO {
+  id: number
+  name: string
+  role: string
+  sex: string
+  age: number
+  address: string
+}
+
+const tableData = ref<RowVO[]>([])
 </script>
 
 <template>
@@ -105,11 +116,19 @@ async function handleLogin4() {
       </div>
       <div>Element Plus 图标使用</div>
       <i-ep:apple />
-      <i-ep-delete class="w-20 h-20" />
-      <i-ep:circle-plus class="text-red-500 text-2xl" />
+      <i-ep-delete class="h-20 w-20" />
+      <i-ep:circle-plus class="text-2xl text-red-500" />
       <div>本地图标使用</div>
-      <i-svg:home class="w-10 h-10 inline" />
-      <i-svg:icon-park-solid-apple class="inline text-red-6 text-size-20" />
+      <i-svg:home class="inline h-10 w-10" />
+      <i-svg:icon-park-solid-apple class="inline text-size-20 text-red-6" />
+    </div>
+    <div>
+      <vxe-table :data="tableData" :empty-text="$t('result.empty')">
+        <vxe-column type="seq" width="70" />
+        <vxe-column field="name" title="Name" />
+        <vxe-column field="sex" title="Sex" />
+        <vxe-column field="age" title="Age" />
+      </vxe-table>
     </div>
   </div>
 </template>

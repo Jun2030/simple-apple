@@ -8,7 +8,6 @@ import Components from 'unplugin-vue-components/vite'
 import { pathResolve } from '../index'
 
 export default [
-
   AutoImport({
     imports: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core', '@vueuse/head'],
     dirs: [pathResolve('src/**/hooks'), pathResolve('src/store/modules'), pathResolve('src/**/composables')],

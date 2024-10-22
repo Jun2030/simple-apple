@@ -1,6 +1,8 @@
 @import './reset.css';
 @import './scrollbar.css';
 @import './transition.css';
+
+@import 'vxe-table/lib/style.css';
 /* 处理Element-plus按需引入 ElLoading、ElMessage、ElMessageBox、ElNotification 样式丢失问题 */
 @import 'element-plus/theme-chalk/el-loading.css';
 @import 'element-plus/theme-chalk/el-message.css';
