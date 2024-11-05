@@ -26,7 +26,7 @@ export function routerPermission(router: Router): void {
       }
       // 其他没有访问权限的页面将被重定向到登录页面
       return next({
-        name: 'UserLogin',
+        name: 'Login',
         query: {
           redirect: to.fullPath,
         },
@@ -34,9 +34,11 @@ export function routerPermission(router: Router): void {
     }
 
     // 如果已经登录，并准备进入 Login 页面，则重定向到主页
-    if (to.name === 'UserLogin') {
+    if (to.name === 'Login') {
       return next({ path: '/' })
     }
+
+    next()
   })
 
   router.afterEach((to) => {

@@ -35,7 +35,7 @@ export class LocalStg {
     if (json) {
       const value = this._isEncrypt ? decrypt(json) : JSON.parse(json)
       if (value) {
-        if (value.expires && (value.expires as number > new Date().getTime() || value.expires === 0)) {
+        if (value.expires as number > new Date().getTime() || value.expires === 0) {
           return value.data
         }
       }

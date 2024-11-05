@@ -1,14 +1,12 @@
 import { StorageKeyEnum } from '@/enum'
 import { localStg } from '@2030/utils'
 
-const { setItem, getItem, removeItem } = localStg
-
 /**
  * 设置用户令牌
  * @param token 用户令牌字符串
  */
 export function setToken(token: string): void {
-  setItem(StorageKeyEnum.USER_TOKEN, token)
+  localStg.setItem(StorageKeyEnum.USER_TOKEN, token)
 }
 
 /**
@@ -16,14 +14,14 @@ export function setToken(token: string): void {
  * @returns 用户令牌字符串,如果不存在则返回空字符串
  */
 export function getToken(): string {
-  return getItem<string>(StorageKeyEnum.USER_TOKEN) || ''
+  return localStg.getItem<string>(StorageKeyEnum.USER_TOKEN) || ''
 }
 
 /**
  * 删除用户令牌
  */
 export function removeToken(): void {
-  removeItem(StorageKeyEnum.USER_TOKEN)
+  localStg.removeItem(StorageKeyEnum.USER_TOKEN)
 }
 
 /**
@@ -31,7 +29,7 @@ export function removeToken(): void {
  * @param userInfo 用户信息对象
  */
 export function setUserInfo(userInfo: Auth.UserInfo): void {
-  setItem(StorageKeyEnum.USER_INFO, userInfo)
+  localStg.setItem(StorageKeyEnum.USER_INFO, userInfo)
 }
 
 /**
@@ -39,14 +37,14 @@ export function setUserInfo(userInfo: Auth.UserInfo): void {
  * @returns 用户信息对象,如果不存在则返回默认用户信息
  */
 export function getUserInfo(): Auth.UserInfo {
-  return getItem<Auth.UserInfo>(StorageKeyEnum.USER_INFO) || ({} as Auth.UserInfo)
+  return localStg.getItem<Auth.UserInfo>(StorageKeyEnum.USER_INFO) || ({} as Auth.UserInfo)
 }
 
 /**
  * 删除用户信息
  */
 export function removeUserInfo(): void {
-  removeItem(StorageKeyEnum.USER_INFO)
+  localStg.removeItem(StorageKeyEnum.USER_INFO)
 }
 
 /**

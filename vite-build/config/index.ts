@@ -73,7 +73,6 @@ export const OPTIMIZE_DEPS: DepOptimizationOptions = {
     'crypto-js',
     'vxe-table',
     'xe-utils',
-    'vxe-table-plugin-element',
     '@vueuse/core',
     'nprogress',
     'element-plus/es/components/loading/style/css',
