@@ -1,4 +1,4 @@
-declare namespace SaRoute {
+declare namespace Route {
   /**
    * 路由组件
    * - basic: 基础组件,具有公共部分布局
@@ -51,7 +51,7 @@ declare namespace SaRoute {
     /**
      * 哪些类型的用户有权限才能访问(空的话则表示不需要权限)
      */
-    roles?: SaAuth.RoleType[]
+    roles?: Auth.RoleType[]
     /**
      * 是否缓存页面
      * 默认为false,为true时代表需要缓存，此时该路由和该页面都需要设置一致的 Name
@@ -73,5 +73,5 @@ declare namespace SaRoute {
     activeMenu?: string
   }
 
-  type RouteModule = Record<string, { default: SaRoute.Route }>
+  type RouteModule = Record<string, { default: Route.Route }>
 }

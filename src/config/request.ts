@@ -28,10 +28,10 @@ export function defaultAxiosConfig(): AxiosRequestConfig {
  * 默认的额外配置
  */
 export const DEFAULT_EXTRA_CONFIG: ExtraConfig = {
-  // 是否隐藏前置loading, 默认显示
-  hidePreLoading: false,
-  // 是否隐藏后置loading, 默认显示
-  hidePostLoading: false,
+  // 是否隐藏前置loading, 默认隐藏
+  hidePreLoading: true,
+  // 是否隐藏后置loading, 默认隐藏
+  hidePostLoading: true,
   // 加载动画文字
   loadingText: () => $t('requestConfig.loadingText'),
   // 是否展示错误提示, 默认Toast展示

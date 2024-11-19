@@ -11,7 +11,7 @@ export function createPlugins(viteEnv: ViteEnv, isBuild: boolean): (PluginOption
   const plugins: (PluginOption | PluginOption[])[] = [
     Vue(),
     VueJsx(),
-    !isBuild && VueDevTools(),
+    !isBuild && viteEnv.VITE_DEVTOOLS && VueDevTools(),
     html(viteEnv, isBuild),
     ...unplugin,
     Unocss(),

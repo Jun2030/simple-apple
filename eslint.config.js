@@ -10,6 +10,8 @@ export default jun({
     // 'style/comma-dangle': [2, 'never'],
     // 允许使用consoles
     'no-console': 0,
+    // 允许顶层使用箭头函数
+    // 'jun/top-level-function': ['off'],
   },
   ignores: ['**/dist/**', '**/node_modules/**'],
 })

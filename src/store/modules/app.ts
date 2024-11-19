@@ -10,6 +10,7 @@ export const useAppStore = defineStore('app', {
   state: (): AppState => ({
     locale: localStg.getItem('locale') ?? getBrowserLang(),
     loadingInstance: null,
+    btnLoading: false,
   }),
   getters: {
     getLocale: (state) => {
@@ -37,6 +38,9 @@ export const useAppStore = defineStore('app', {
       } else {
         this.loadingInstance?.close()
       }
+    },
+    SET_BTN_LOADING(loading: boolean) {
+      this.btnLoading = loading
     },
   },
   persist: piniaPersistConfig('app'),

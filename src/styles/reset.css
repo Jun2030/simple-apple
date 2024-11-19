@@ -27,6 +27,8 @@ html {
     'Segoe UI Emoji',
     'Segoe UI Symbol',
     'Noto Color Emoji';
+  font-size: text-sm;
+  color: var(--sa-text-default);
 }
 
 body {

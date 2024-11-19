@@ -8,8 +8,8 @@ export const VXETableConfig: VxeGlobalConfig = {
   loadingText: null,
   table: {
     showHeader: true,
-    showOverflow: 'tooltip',
-    showHeaderOverflow: 'tooltip',
+    showOverflow: 'title',
+    showHeaderOverflow: 'title',
     autoResize: true,
     // stripe: false,
     border: 'inner',

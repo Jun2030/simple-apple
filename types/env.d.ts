@@ -70,7 +70,7 @@ interface ViteEnv {
    * 路由模式
    * 指定路由模式，可选值：history|hash
    */
-  readonly VITE_ROUTE_MODE: SaRoute.RouteMode
+  readonly VITE_ROUTE_MODE: Route.RouteMode
 
   /**
    * 构建压缩类型
@@ -83,4 +83,10 @@ interface ViteEnv {
    * 控制生产构建时是否移除console.log等调试代码
    */
   readonly VITE_DROP_CONSOLE: boolean
+
+  /**
+   * 是否开启DevTools
+   * 控制生产构建时是否开启Vue DevTools工具
+   */
+  readonly VITE_DEVTOOLS: boolean
 }

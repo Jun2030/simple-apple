@@ -1,12 +1,21 @@
+import { StoreConfig } from '@/config'
 import { StorageKeyEnum } from '@/enum'
-import { localStg } from '@2030/utils'
+import { useUserStoreHook } from '@/store/modules/user'
+import { localStg, sessionStg } from '@2030/utils'
 
 /**
  * 设置用户令牌
  * @param token 用户令牌字符串
  */
 export function setToken(token: string): void {
-  localStg.setItem(StorageKeyEnum.USER_TOKEN, token)
+  const { autoLogin } = useUserStoreHook()
+  if (autoLogin) {
+    localStg.setItem(StorageKeyEnum.USER_TOKEN, token, StoreConfig.DEFAULT_TOKEN_EXPIRE)
+    sessionStg.removeItem(StorageKeyEnum.USER_TOKEN)
+  } else {
+    sessionStg.setItem(StorageKeyEnum.USER_TOKEN, token)
+    localStg.removeItem(StorageKeyEnum.USER_TOKEN)
+  }
 }
 
 /**
@@ -14,7 +23,11 @@ export function setToken(token: string): void {
  * @returns 用户令牌字符串,如果不存在则返回空字符串
  */
 export function getToken(): string {
-  return localStg.getItem<string>(StorageKeyEnum.USER_TOKEN) || ''
+  const localToken = localStg.getItem<string>(StorageKeyEnum.USER_TOKEN)
+  if (localToken)
+    return localToken
+  const sessionToken = sessionStg.getItem<string>(StorageKeyEnum.USER_TOKEN)
+  return sessionToken || ''
 }
 
 /**
@@ -22,6 +35,7 @@ export function getToken(): string {
  */
 export function removeToken(): void {
   localStg.removeItem(StorageKeyEnum.USER_TOKEN)
+  sessionStg.removeItem(StorageKeyEnum.USER_TOKEN)
 }
 
 /**
@@ -64,7 +78,7 @@ export function getTokenPrefix(tokenKey: string): string {
   let prefix = ''
   switch (tokenKey) {
     case 'Authorization':
-      prefix = 'Bearer '
+      prefix = 'Bearer'
       break
     default:
       break

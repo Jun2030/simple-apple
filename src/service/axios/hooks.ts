@@ -69,9 +69,6 @@ export class AxiosHooks implements IAxiosHooks {
       config.headers![AUTH_KEY] = `${getTokenPrefix('Authorization')} ${token}`
     }
 
-    // NOTE - 临时测试
-    config.headers!['Tenant-Id'] = 1
-
     // 请求前加载动画, 并设置加载文案
     if (!hidePreLoading) {
       useAppStoreHook().SET_LOADING(true, typeof loadingText === 'function' ? loadingText() : loadingText)
@@ -119,7 +116,7 @@ export class AxiosHooks implements IAxiosHooks {
         if (successCode.includes(code) || IGNORE_CODE.includes(code)) {
           return data
         } else {
-        // 业务层错误码处理
+          // 业务层错误码处理
           return handleBusinessCode(code, msg, showError!, data)
         }
       } else {
@@ -137,13 +134,13 @@ export class AxiosHooks implements IAxiosHooks {
    * @returns 返回处理错误的Promise
    */
   responseCatchErrorHook(error: any) {
-  // 请求取消
+    // 请求已经发出，但是得到了一个协议层状态码不在2xx范围内的响应 | 请求完全得不到响应
+    // 请求取消
     if (axios.isCancel(error)) {
       return Promise.reject(error)
     }
     // 获取是否显示错误的配置
     const { showError } = error.config!.extraConfig as ExtraConfig
-    // 请求已经发出，但是得到了一个协议层状态码不在2xx范围内的响应 | 请求完全得不到响应
 
     // 关闭请求后加载动画
     useAppStoreHook().SET_LOADING(false)

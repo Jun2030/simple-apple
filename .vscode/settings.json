@@ -1,59 +1,18 @@
 {
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
-  },
-  "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off", "fixable": true },
-    { "rule": "format/*", "severity": "off", "fixable": true },
-    { "rule": "*-indent", "severity": "off", "fixable": true },
-    { "rule": "*-spacing", "severity": "off", "fixable": true },
-    { "rule": "*-spaces", "severity": "off", "fixable": true },
-    { "rule": "*-order", "severity": "off", "fixable": true },
-    { "rule": "*-dangle", "severity": "off", "fixable": true },
-    { "rule": "*-newline", "severity": "off", "fixable": true },
-    { "rule": "*quotes", "severity": "off", "fixable": true },
-    { "rule": "*semi", "severity": "off", "fixable": true }
+  "cSpell.ignorePaths": [
+    "node_modules/**/*",
+    "dist/**/*",
+    ".vscode/**/*",
+    "pnpm-lock.yaml",
+    ".vitepress/**/*"
   ],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "html",
-    "markdown",
-    "json",
-    "jsonc",
-    "yaml",
-    "toml",
-    "xml",
-    "gql",
-    "graphql",
-    "astro",
-    "css",
-    "less",
-    "scss",
-    "pcss",
-    "postcss"
-  ],
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/node_modules": false
-  },
   "cSpell.words": [
     "ampproject",
     "astro",
     "Attributify",
     "Autosize",
     "avue",
+    "axios",
     "brotli",
     "Complexpass",
     "composables",
@@ -81,6 +40,7 @@
     "pausable",
     "persistedstate",
     "pinia",
+    "preflights",
     "scroller",
     "Shiki",
     "slidev",
@@ -95,10 +55,100 @@
     "vueuse",
     "YESORNO"
   ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.formatOnSave": false,
+  "eslint.rules.customizations": [
+    {
+      "fixable": true,
+      "rule": "style/*",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "format/*",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*-indent",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*-spacing",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*-spaces",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*-order",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*-dangle",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*-newline",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*quotes",
+      "severity": "off"
+    },
+    {
+      "fixable": true,
+      "rule": "*semi",
+      "severity": "off"
+    }
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ],
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/node_modules": false,
+    "**/Thumbs.db": true
+  },
+  "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": [
     "src/locales"
   ],
-  "oxc_language_server.configPath": ".eslint.config.js",
   "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.keystyle": "nested"
+  "oxc.enable": true,
+  "oxc_language_server.configPath": ".eslint.config.js",
+  "prettier.enable": false
 }

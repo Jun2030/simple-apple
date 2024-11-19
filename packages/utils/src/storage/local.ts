@@ -37,6 +37,8 @@ export class LocalStg {
       if (value) {
         if (value.expires as number > new Date().getTime() || value.expires === 0) {
           return value.data
+        } else {
+          this.removeItem(k)
         }
       }
       return null
