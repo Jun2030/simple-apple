@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@2030/utils": "workspace:*",
-    "@vueuse/core": "^11.2.0",
+    "@vueuse/core": "^11.3.0",
     "axios": "^1.7.7",
     "axios-retry": "^4.5.0",
     "dayjs": "^1.11.13",
@@ -37,12 +37,12 @@
     "vue-json-pretty": "^2.4.0",
     "vue-router": "^4.4.5",
     "vxe-table": "~4.9.0",
-    "xe-utils": "^3.5.31"
+    "xe-utils": "^3.5.32"
   },
   "devDependencies": {
     "@2030/commitlint-config-emoji": "^2.0.2",
     "@2030/eslint-config": "^2.0.3",
-    "@commitlint/cli": "^19.5.0",
+    "@commitlint/cli": "^19.6.0",
     "@iconify-json/ep": "^1.2.1",
     "@intlify/unplugin-vue-i18n": "^6.0.0",
     "@release-it/conventional-changelog": "^9.0.3",
@@ -55,9 +55,9 @@
     "lint-staged": "^15.2.10",
     "release-it": "^17.10.0",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "5.6.3",
+    "typescript": "5.7.2",
     "unocss": "^0.64.1",
-    "unplugin-auto-import": "^0.18.4",
+    "unplugin-auto-import": "^0.18.5",
     "unplugin-icons": "^0.20.1",
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.11",
