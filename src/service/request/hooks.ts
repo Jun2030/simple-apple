@@ -84,7 +84,7 @@ export class AxiosHooks implements IAxiosHooks {
    * @return {*}
    */
   responseInterceptorHook(res: AxiosResponse, extraConfig: ExtraConfig) {
-    const { reduceResponse, hidePostLoading, showError } = extraConfig
+    const { reduceResponse, hidePostLoading, showError, backendConfig } = extraConfig
     // 请求防抖处理
     const { config } = res
     config && axiosCanceler.removePending(config)
@@ -95,7 +95,7 @@ export class AxiosHooks implements IAxiosHooks {
     }
 
     // status为200,返回数据处理,以下为针对性数据处理
-    const { codeKey, dataKey, msgKey, successCode, ignoreCode } = extraConfig.backendConfig!
+    const { codeKey, dataKey, msgKey, successCode, ignoreCode } = backendConfig!
     const [data, code, msg] = [res.data[dataKey], res.data[codeKey], res.data[msgKey]]
     if (code === null || code === undefined || code === '')
       // 业务层无 code 码处理
@@ -112,11 +112,10 @@ export class AxiosHooks implements IAxiosHooks {
    * 自定义响应错误处理钩子
    * 该钩子用于统一处理所有响应错误，包括协议层错误和网络错误
    * @param error 错误对象，包含请求配置、响应信息等
-   * @param _axiosConfig 请求配置
    * @param extraConfig 额外配置
    * @returns 返回处理错误的Promise
    */
-  responseCatchErrorHook(error: any, _axiosConfig: AxiosRequestConfig, extraConfig: ExtraConfig) {
+  responseCatchErrorHook(error: any, extraConfig: ExtraConfig) {
     // 请求已经发出，但是得到了一个协议层状态码不在2xx范围内的响应 | 请求完全得不到响应
     // 请求取消
     if (axios.isCancel(error)) {

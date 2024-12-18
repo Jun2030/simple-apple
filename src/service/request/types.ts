@@ -16,5 +16,5 @@ export interface IAxiosHooks {
   // 响应成功后，数据拦截
   responseInterceptorHook?: (res: AxiosResponse, extraConfig: ExtraConfig) => any
   // 响应错误，错误拦截
-  responseCatchErrorHook?: (err: Error, axiosConfig: AxiosRequestConfig, extraConfig: ExtraConfig) => void
+  responseCatchErrorHook?: (err: Error, extraConfig: ExtraConfig) => void
 }

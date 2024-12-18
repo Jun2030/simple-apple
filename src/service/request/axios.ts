@@ -7,11 +7,9 @@ const axiosHooks = new AxiosHooks()
 
 export class Axios {
   private axios: AxiosInstance
-  private axiosConfig: AxiosRequestConfig
   private extraConfig: ExtraConfig
 
   constructor(axiosConfig: AxiosRequestConfig, extraConfig: ExtraConfig) {
-    this.axiosConfig = axiosConfig
     this.extraConfig = extraConfig
     this.axios = axios.create(axiosConfig)
     this.setupHooks()
@@ -44,7 +42,7 @@ export class Axios {
       },
       (error: AxiosError) => {
         if (axiosHooks.responseCatchErrorHook) {
-          return axiosHooks.responseCatchErrorHook(error, this.axiosConfig, this.extraConfig)
+          return axiosHooks.responseCatchErrorHook(error, this.extraConfig)
         }
       },
     )
