@@ -39,6 +39,14 @@ interface BackendConfig {
   ignoreCode?: number[]
 }
 
+/* 请求头配置 */
+interface HeaderConfig {
+  // 请求头
+  authKey?: string
+  // 自定义请求头数据
+  customHeaders?: Record<string, string>
+}
+
 /* 请求的额外参数 */
 interface ExtraConfig {
   // 是否展示请求前加载动画
@@ -63,8 +71,9 @@ interface ExtraConfig {
   businessCodeMap?: (msg: string) => Map<number, { msg: string, action: (msg: string, data: any) => void }>
   // 后台返回数据格式
   backendConfig?: BackendConfig
+  // 请求头配置
+  headersConfig?: HeaderConfig
 }
 
   /* 请求方式 */
   type RequestMethod = 'get' | 'post' | 'put' | 'delete'
-// }

@@ -44,7 +44,8 @@ export class AxiosHooks implements IAxiosHooks {
    * @param {AxiosRequestConfig} config 请求配置
    */
   requestInterceptorHook(config: AxiosRequestConfig, extraConfig: ExtraConfig): AxiosRequestConfig {
-    const { ignoreRepeat, retry, hidePreLoading, loadingText, ignoreEmptyParams } = extraConfig
+    const { ignoreRepeat, retry, hidePreLoading, loadingText, ignoreEmptyParams, headersConfig } = extraConfig
+    const { authKey, customHeaders } = headersConfig!
 
     // 请求防抖处理
     if (!ignoreRepeat && !retry) {
@@ -54,7 +55,14 @@ export class AxiosHooks implements IAxiosHooks {
     // 获取Token并设置
     const token = getToken()
     if (token) {
-      config.headers![AUTH_KEY] = `${getTokenPrefix('Authorization')} ${token}`
+      config.headers![authKey || AUTH_KEY] = `${getTokenPrefix('Authorization')} ${token}`
+    }
+
+    // 设置自定义请求头
+    if (customHeaders) {
+      Object.entries(customHeaders).forEach(([key, value]) => {
+        key && (config.headers![key] = value)
+      })
     }
 
     // 请求前加载动画, 并设置加载文案

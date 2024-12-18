@@ -52,6 +52,14 @@ export const DEFAULT_EXTRA_CONFIG: ExtraConfig = {
     dataKey: 'data',
     msgKey: 'msg',
     successCode: REQUEST_SUCCESS_CODE,
+    ignoreCode: [],
+  },
+  // 请求头配置
+  headersConfig: {
+    // 鉴权键名: Authorization|Token|...
+    authKey: AUTH_KEY,
+    // 自定义请求头数据
+    customHeaders: {},
   },
 }
 

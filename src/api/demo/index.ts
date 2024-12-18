@@ -17,8 +17,11 @@ export function getBiliHot() {
       msgKey: 'msg',
       successCode: [1],
     },
-    hidePreLoading: false,
-    hidePostLoading: false,
+    headersConfig: {
+      customHeaders: {},
+    },
+    hidePreLoading: true,
+    hidePostLoading: true,
     reduceResponse: true,
     ignoreRepeat: false,
     retry: 0,
