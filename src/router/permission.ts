@@ -2,7 +2,7 @@ import type { RouteLocationNormalized, RouteLocationNormalizedLoaded, Router } f
 import { RouterConfig } from '@/config'
 import { useTitleSet } from '@/hooks/useTitleSet'
 import { getToken } from '@/service/auth'
-import { AxiosCanceler } from '@/service/axios/cancel'
+import { AxiosCanceler } from '@/service/request/cancel'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 

@@ -11,6 +11,7 @@ httpError:
   503: 服务不可用
   504: 网关超时
   505: HTTP版本不支持
+noCodeError: 服务器响应错误
 networkError:
   network: 网络异常，请检查网络设置
   timeout: 请求超时，请稍后再试

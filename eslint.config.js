@@ -13,5 +13,5 @@ export default jun({
     // 允许顶层使用箭头函数
     // 'jun/top-level-function': ['off'],
   },
-  ignores: ['**/dist/**', '**/node_modules/**'],
+  ignores: ['**/dist/**', '**/node_modules/**', '**/.vitepress/**'],
 })

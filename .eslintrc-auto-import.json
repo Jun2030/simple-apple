@@ -317,6 +317,7 @@
     "useUserStoreHook": true,
     "useTitleSet": true,
     "useAppStoreHook": true,
-    "ElLoading": true
+    "ElLoading": true,
+    "UserState": true
   }
 }

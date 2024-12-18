@@ -7,19 +7,14 @@ export interface RequestConfig extends AxiosRequestConfig {
 }
 
 export interface IAxiosHooks {
-  // 额外的配置参数
-  mergedExtraConfig: ExtraConfig
   // 请求之前，请求参数拦截
   beforeRequestHook?: (
-    defaultConfig: AxiosRequestConfig,
     config: AxiosRequestConfig,
-    defaultExtraConfig: ExtraConfig,
-    extraConfig?: ExtraConfig
   ) => AxiosRequestConfig
   // 请求成功后，数据拦截
-  requestInterceptorHook?: (config: AxiosRequestConfig) => AxiosRequestConfig
+  requestInterceptorHook?: (config: AxiosRequestConfig, extraConfig: ExtraConfig) => AxiosRequestConfig
   // 响应成功后，数据拦截
-  responseInterceptorHook?: (res: AxiosResponse) => any
+  responseInterceptorHook?: (res: AxiosResponse, extraConfig: ExtraConfig) => any
   // 响应错误，错误拦截
-  responseCatchErrorHook?: (err: Error) => void
+  responseCatchErrorHook?: (err: Error, axiosConfig: AxiosRequestConfig, extraConfig: ExtraConfig) => void
 }

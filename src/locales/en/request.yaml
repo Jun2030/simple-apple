@@ -11,6 +11,7 @@ httpError:
   503: Service Unavailable
   504: Gateway Timeout
   505: HTTP Version Not Supported
+noCodeError: Server Response Error
 networkError:
   network: Network Error
   timeout: Request Timeout

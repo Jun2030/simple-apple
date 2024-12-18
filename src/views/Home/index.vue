@@ -1,5 +1,5 @@
 <script setup lang="tsx">
-import { login, login2, login3 } from '@/api/login'
+import { getBiliHot, getHistoryAtToday, getHotNews, getJoke } from '@/api/demo'
 import ICON_LOGO from '@/assets/imgs/icon.png'
 import { LocaleEnum } from '@/enum'
 import VueJsonPretty from 'vue-json-pretty'
@@ -21,45 +21,66 @@ const value1 = ref<[Date, Date]>([
   new Date(2016, 9, 10, 9, 40),
 ])
 
-// 测试接口数据
-const data = {
-  username: 'admin123',
-  password: 'admin123',
-  tenantName: '瑟壳后台',
-  rememberMe: true,
-}
-const data2 = {
-  username: 'admin123',
-  password: 'admin123',
-  tenantName: '',
-  rememberMe: true,
-}
 const resData = ref<any>()
 const errData = ref<any>()
 
-async function handleLogin() {
-  resData.value = await login(data)
-  $message.success(t('demo.loginSuccess'))
-}
-
-async function handleLogin2() {
+/** 获取数据(返回简化数据-data) */
+async function handleBiliHot() {
   try {
-    resData.value = await login2(data)
+    const res = await getBiliHot()
+    console.log('getBiliHot--res:', res)
+    resData.value = res
+    errData.value = null
   } catch (error) {
+    console.log('getBiliHot--error:', error)
     errData.value = error
   }
 }
 
-async function handleLogin3() {
-  resData.value = await login2(data2)
+/** 获取数据(返回完整数据) */
+async function handleGetWeather() {
+  const res = await getHistoryAtToday({
+    type: 'weibo',
+  })
+  console.log('getHistoryAtToday--res:', res)
+  resData.value = res
 }
 
-async function handleLogin4() {
+/** 获取错误信息-无业务code码 */
+async function handleGetJoke() {
+  const res = await getJoke()
+  console.log({ res })
+}
+
+/** 获取错误信息-有业务code码 */
+async function handleGetNews() {
   try {
-    resData.value = await login3(data2)
+    await getHotNews()
+    $message.success(t('demo.success'))
   } catch (error) {
+    console.log({ error })
+    resData.value = null
     errData.value = error
   }
+}
+
+/** 同时获取不同接口 */
+function handleTogether() {
+  handleBiliHot()
+  handleGetWeather()
+}
+
+/** 同时获取相同接口 */
+function handleTogetherSame() {
+  handleBiliHot()
+  handleBiliHot()
+  handleBiliHot()
+}
+
+/** 错误重试 */
+function handleErrorRetry() {
+  handleGetWeather()
+  handleGetWeather()
 }
 
 interface RowVO {
@@ -90,22 +111,28 @@ const tableData = ref<RowVO[]>([])
       end-placeholder="End time"
     />
     <div>
-      <ElButton type="info" @click="handleLogin">
+      <ElButton type="info" @click="handleBiliHot">
         {{ t('demo.button1') }}
       </ElButton>
-      <ElButton type="info" @click="handleLogin2">
+      <ElButton type="info" @click="handleGetWeather">
         {{ t('demo.button2') }}
       </ElButton>
-      <ElButton type="info" @click="handleLogin2">
+      <ElButton type="info" @click="handleGetJoke">
+        获取错误信息-无业务code码
+      </ElButton>
+      <ElButton type="info" @click="handleGetNews">
         {{ t('demo.button3') }}
       </ElButton>
-      <ElButton type="info" @click="handleLogin3">
-        {{ t('demo.button4') }}
+      <ElButton type="info" @click="handleTogether">
+        同时获取不同接口
       </ElButton>
-      <ElButton type="info" @click="handleLogin2">
+      <!-- <ElButton type="info" @click="handleLogin3">
+        {{ t('demo.button4') }}
+      </ElButton> -->
+      <ElButton type="info" @click="handleTogetherSame">
         {{ t('demo.button5') }}
       </ElButton>
-      <ElButton type="info" @click="handleLogin4">
+      <ElButton type="info" @click="handleErrorRetry">
         {{ t('demo.button6') }}
       </ElButton>
       <div>

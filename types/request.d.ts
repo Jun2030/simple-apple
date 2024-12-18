@@ -52,6 +52,7 @@ interface ExtraConfig {
   // 是否忽略重复请求
   ignoreRepeat?: boolean
   // 接口错误重试次数
+  // 数值不为0时，ignoreRepeat参数无效
   retry?: number
   // 是否忽略空参数(null, undefined, '')
   ignoreEmptyParams?: boolean

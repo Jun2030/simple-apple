@@ -1,19 +1,19 @@
 import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
-import type { RequestConfig } from './types'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
-import { clone } from 'xe-utils'
 import { AxiosHooks } from './hooks'
 
 const axiosHooks = new AxiosHooks()
 
 export class Axios {
   private axios: AxiosInstance
-  private config: RequestConfig
+  private axiosConfig: AxiosRequestConfig
+  private extraConfig: ExtraConfig
 
-  constructor(config: RequestConfig) {
-    this.config = config
-    this.axios = axios.create(config)
+  constructor(axiosConfig: AxiosRequestConfig, extraConfig: ExtraConfig) {
+    this.axiosConfig = axiosConfig
+    this.extraConfig = extraConfig
+    this.axios = axios.create(axiosConfig)
     this.setupHooks()
   }
 
@@ -24,7 +24,7 @@ export class Axios {
     request.use(
       (config: InternalAxiosRequestConfig) => {
         if (axiosHooks.requestInterceptorHook) {
-          return axiosHooks.requestInterceptorHook(config) as InternalAxiosRequestConfig
+          return axiosHooks.requestInterceptorHook(config, this.extraConfig) as InternalAxiosRequestConfig
         } else {
           return config
         }
@@ -37,14 +37,14 @@ export class Axios {
     response.use(
       (res: AxiosResponse): AxiosResponse => {
         if (axiosHooks.responseInterceptorHook) {
-          return axiosHooks.responseInterceptorHook(res)
+          return axiosHooks.responseInterceptorHook(res, this.extraConfig)
         } else {
           return res
         }
       },
       (error: AxiosError) => {
         if (axiosHooks.responseCatchErrorHook) {
-          return axiosHooks.responseCatchErrorHook(error)
+          return axiosHooks.responseCatchErrorHook(error, this.axiosConfig, this.extraConfig)
         }
       },
     )
@@ -52,29 +52,28 @@ export class Axios {
 
   public request<T>(
     config: AxiosRequestConfig,
-    extraConfig?: ExtraConfig,
   ): Promise<T> {
-    const originalConfig = clone(this.config, true)
-    const { extraConfig: defaultExtraConfig } = originalConfig
-    delete originalConfig.extraConfig
-
-    let mergeConfig: AxiosRequestConfig = originalConfig
+    let axiosConfig: AxiosRequestConfig = config
     if (axiosHooks.beforeRequestHook) {
-      mergeConfig = axiosHooks.beforeRequestHook(
-        originalConfig,
-        config,
-        defaultExtraConfig as ExtraConfig,
-        extraConfig,
-      )
+      axiosConfig = axiosHooks.beforeRequestHook(config)
     }
 
     // 错误重试-网络错误或5xx 服务器错误
-    const { retry } = Object.assign(defaultExtraConfig as ExtraConfig, extraConfig)
-    if (retry) {
+    if (this.extraConfig.retry) {
       axiosRetry(this.axios, {
-        retries: retry,
+        retries: this.extraConfig.retry,
         retryDelay: (retryCount) => {
           return retryCount * 3000
+        },
+        // 只对网络错误和5xx错误进行重试
+        retryCondition: (error) => {
+          console.log('ERROR', error)
+          // 如果是取消的请求，不进行重试
+          if (axios.isCancel(error)) {
+            return false
+          }
+          // 网络错误或服务器错误时重试
+          return axiosRetry.isNetworkOrIdempotentRequestError(error)
         },
         shouldResetTimeout: true,
       })
@@ -82,7 +81,7 @@ export class Axios {
 
     return new Promise<T>((resolve, reject) => {
       this.axios
-        .request(mergeConfig)
+        .request(axiosConfig)
         .then((res) => {
           resolve(res as T)
         })

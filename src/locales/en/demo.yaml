@@ -7,9 +7,11 @@ demo:
   errorData: Error Data
   loginSuccess: Login Success
   loginError: Login Error
+  success: Success
+  error: Error
   button1: Default with loading
   button2: Get all data
-  button3: Get error data when offline
+  button3: Get error data
   button4: Do not filter empty parameters
   button5: Prevent duplicate requests
   button6: Error retry

@@ -16,7 +16,7 @@
 ```vue
 <template>
   <div>
-    <i-ep:apple class="text-red-500 text-2xl" />
+    <i-ep:apple class="text-2xl text-red-500" />
   </div>
 </template>
 ```

@@ -11,9 +11,10 @@ export const AUTH_KEY: string = authKey || 'Authorization'
 export const REQUEST_TIMEOUT: number = timeout || 15 * 1000
 
 /* 业务层（非协议层）接口定义的成功码，0、200、... */
-export const REQUEST_SUCCESS_CODE: (string | number)[] = successCode || [0]
+export const REQUEST_SUCCESS_CODE: number[] = successCode || [0, 200]
 
 const { VITE_BASE_API } = import.meta.env
+
 /** 请求默认的Axios配置 */
 export function defaultAxiosConfig(): AxiosRequestConfig {
   const baseURL = baseApiUrl || VITE_BASE_API
@@ -21,7 +22,8 @@ export function defaultAxiosConfig(): AxiosRequestConfig {
     'Content-Type': ContentTypeEnum.RAW_JSON,
   }
   const timeout = REQUEST_TIMEOUT
-  return { baseURL, headers, timeout }
+  const withCredentials = false
+  return { baseURL, headers, timeout, withCredentials }
 }
 
 /**
@@ -39,16 +41,17 @@ export const DEFAULT_EXTRA_CONFIG: ExtraConfig = {
   // 是否忽略重复请求, 默认开启防重复请求
   ignoreRepeat: false,
   // 接口错误重试次数
-  retry: 0,
+  retry: 2,
   // 是否忽略空参数值传递, 默认过滤空值参数(null, undefined, '')传递
   ignoreEmptyParams: false,
   // 是否开启简洁数据结构响应, 默认返回 data 数据
   reduceResponse: true,
+  // 后台返回数据格式
   backendConfig: {
     codeKey: 'code',
     dataKey: 'data',
     msgKey: 'msg',
-    successCode,
+    successCode: REQUEST_SUCCESS_CODE,
   },
 }
 

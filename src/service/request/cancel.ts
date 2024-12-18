@@ -54,6 +54,20 @@ export class AxiosCanceler {
   }
 
   /**
+   * 取消指定请求
+   * @param { string } url 请求配置
+   */
+  public removePendingByUrl(url: string): void {
+    if (pendingMap.has(url)) {
+      const cancel = pendingMap.get(url)
+      if (cancel) {
+        cancel(url)
+      }
+      pendingMap.delete(url)
+    }
+  }
+
+  /**
    * 取消并清空所有待处理的请求
    */
   public removeAllPending(): void {

@@ -1,10 +1,10 @@
 {
   "cSpell.ignorePaths": [
-    "node_modules/**/*",
-    "dist/**/*",
-    ".vscode/**/*",
-    "pnpm-lock.yaml",
-    ".vitepress/**/*"
+    "**/node_modules",
+    "dist/**",
+    ".vscode/**",
+    "**/.vitepress",
+    "pnpm-lock.yaml"
   ],
   "cSpell.words": [
     "ampproject",
@@ -13,9 +13,13 @@
     "Autosize",
     "avue",
     "axios",
+    "Bili",
+    "bilibili",
     "brotli",
+    "cityid",
     "Complexpass",
     "composables",
+    "contentlist",
     "conventionalcommits",
     "Destructurable",
     "dprint",
@@ -24,6 +28,7 @@
     "Fullscreen",
     "Gamepad",
     "Geolocation",
+    "hotlist",
     "iconify",
     "imgs",
     "INDEXEDDB",
@@ -45,6 +50,7 @@
     "Shiki",
     "slidev",
     "smallwei",
+    "toutiaohotnew",
     "Triggerable",
     "typecheck",
     "unocss",
@@ -53,6 +59,7 @@
     "vitejs",
     "vitepress",
     "vueuse",
+    "weibo",
     "YESORNO"
   ],
   "editor.codeActionsOnSave": {
@@ -135,13 +142,13 @@
     "postcss"
   ],
   "files.exclude": {
-    "**/.DS_Store": true,
     "**/.git": true,
-    "**/.hg": true,
     "**/.svn": true,
+    "**/.hg": true,
     "**/CVS": true,
-    "**/node_modules": false,
-    "**/Thumbs.db": true
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
   },
   "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": [

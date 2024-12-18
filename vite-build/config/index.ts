@@ -79,5 +79,6 @@ export const OPTIMIZE_DEPS: DepOptimizationOptions = {
     'element-plus/es/components/message/style/css',
     'element-plus/es/components/message-box/style/css',
     'element-plus/es/components/notification/style/css',
+    'element-plus/es/components/badge/style/css',
   ],
 }

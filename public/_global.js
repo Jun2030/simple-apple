@@ -9,7 +9,7 @@ window.$config = {
     // 鉴权键名
     authKey: 'Authorization',
     // 业务层（非协议层）接口定义的成功码
-    successCode: [0],
+    successCode: null,
   },
   // 基本的api地址 > env配置
   baseApiUrl: '',

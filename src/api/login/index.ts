@@ -1,5 +1,5 @@
 import type * as Login from './types'
-import request from '@/service/axios'
+import request from '@/service/request'
 
 /** 获取登录验证码 */
 export function getLoginCode() {
