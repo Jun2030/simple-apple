@@ -1,5 +1,7 @@
 # 版本日志
 
+## [0.0.3](https://github.com/Jun2030/simple-apple/compare/v0.0.2...v0.0.3) (2024-12-18)
+
 ## 0.0.2 (2024-11-25)
 
 ### ⚠ BREAKING CHANGES

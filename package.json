@@ -1,7 +1,7 @@
 {
   "name": "simple-apple",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "author": "Dai Jun<zijun2030@163.com>",
   "license": "MIT",
