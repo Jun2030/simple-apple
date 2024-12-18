@@ -6,7 +6,7 @@ import { getToken, getTokenPrefix } from '@/service/auth'
 import { useAppStoreHook } from '@/store/modules/app'
 import axios from 'axios'
 import { AxiosCanceler } from './cancel'
-import { handleBusinessCode, handleEmptyCode, handleHttpCodeError, handleNetworkError, IGNORE_CODE } from './error'
+import { handleBusinessCode, handleEmptyCode, handleHttpCodeError, handleNetworkError } from './error'
 
 export const axiosCanceler = new AxiosCanceler()
 /**
@@ -95,12 +95,12 @@ export class AxiosHooks implements IAxiosHooks {
     }
 
     // status为200,返回数据处理,以下为针对性数据处理
-    const { codeKey, dataKey, msgKey, successCode } = extraConfig.backendConfig!
+    const { codeKey, dataKey, msgKey, successCode, ignoreCode } = extraConfig.backendConfig!
     const [data, code, msg] = [res.data[dataKey], res.data[codeKey], res.data[msgKey]]
     if (code === null || code === undefined || code === '')
       // 业务层无 code 码处理
       return handleEmptyCode(showError!, res.data || data)
-    if (successCode.includes(code) || IGNORE_CODE.includes(code)) {
+    if (successCode.includes(code) || (ignoreCode && ignoreCode.includes(code))) {
       return reduceResponse ? data : res.data
     } else {
       // 业务层错误码处理

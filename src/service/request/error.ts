@@ -4,8 +4,6 @@ import { router } from '@/router'
 import { removeToken } from '@/service/auth'
 import { axiosCanceler } from './hooks'
 
-export const IGNORE_CODE: number[] = [204]
-
 function toastError(msg: string | undefined): void {
   msg && $message({
     message: msg,
