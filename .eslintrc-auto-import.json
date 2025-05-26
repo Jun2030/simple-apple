@@ -318,6 +318,13 @@
     "useTitleSet": true,
     "useAppStoreHook": true,
     "ElLoading": true,
-    "UserState": true
+    "UserState": true,
+    "Slot": true,
+    "Slots": true,
+    "createRef": true,
+    "onElementRemoval": true,
+    "useCountdown": true,
+    "usePreferredReducedTransparency": true,
+    "useSSRWidth": true
   }
 }
