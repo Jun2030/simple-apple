@@ -1,4 +1,5 @@
-import { type ConfigEnv, loadEnv, type UserConfigExport } from 'vite'
+import type { ConfigEnv, UserConfigExport } from 'vite'
+import { loadEnv } from 'vite'
 import { __APP_INFO__, convertEnv, createPlugins, envDir, manualChunks, OPTIMIZE_DEPS, pathResolve } from './vite-build'
 
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
@@ -36,12 +37,14 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     },
     /** 配置开发服务器 */
     server: {
-      host: '0.0.0.0',
       port: 3456,
       open: false,
       /** 预热常用文件，提升热更新速度 */
       warmup: {
         clientFiles: ['./src/layout/**/*.vue'],
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
       },
     },
     /** 配置打包 */

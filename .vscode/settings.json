@@ -21,6 +21,7 @@
     "composables",
     "contentlist",
     "conventionalcommits",
+    "cursorignore",
     "Destructurable",
     "dprint",
     "esbuild",
@@ -53,6 +54,7 @@
     "toutiaohotnew",
     "Triggerable",
     "typecheck",
+    "typegen",
     "unocss",
     "unplugin",
     "viewerjs",
@@ -68,56 +70,16 @@
   },
   "editor.formatOnSave": false,
   "eslint.rules.customizations": [
-    {
-      "fixable": true,
-      "rule": "style/*",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "format/*",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*-indent",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*-spacing",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*-spaces",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*-order",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*-dangle",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*-newline",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*quotes",
-      "severity": "off"
-    },
-    {
-      "fixable": true,
-      "rule": "*semi",
-      "severity": "off"
-    }
+    { "fixable": true, "rule": "style/*", "severity": "off" },
+    { "fixable": true, "rule": "format/*", "severity": "off" },
+    { "fixable": true, "rule": "*-indent", "severity": "off" },
+    { "fixable": true, "rule": "*-spacing", "severity": "off" },
+    { "fixable": true, "rule": "*-spaces", "severity": "off" },
+    { "fixable": true, "rule": "*-order", "severity": "off" },
+    { "fixable": true, "rule": "*-dangle", "severity": "off" },
+    { "fixable": true, "rule": "*-newline", "severity": "off" },
+    { "fixable": true, "rule": "*quotes", "severity": "off" },
+    { "fixable": true, "rule": "*semi", "severity": "off" }
   ],
   "eslint.validate": [
     "javascript",
@@ -155,7 +117,7 @@
     "src/locales"
   ],
   "i18n-ally.sourceLanguage": "en",
-  "oxc.enable": true,
+  "oxc.enable": false,
   "oxc_language_server.configPath": ".eslint.config.js",
   "prettier.enable": false
 }

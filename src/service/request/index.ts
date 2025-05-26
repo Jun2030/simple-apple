@@ -37,6 +37,6 @@ export function useRequest(requestConfig?: RequestConfig) {
   return { get, post, put, delete: delete_ }
 }
 
-const request = useRequest()
+const request = useRequest({})
 
 export default request
